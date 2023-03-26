@@ -212,7 +212,7 @@ const Sidebar = ({
                 {user.occupation}
               </Typography>
           </Box>
-          <SettingOutlined
+          <settingOutlined
             sx ={{
               color: theme.palette.secondary[300],
               fontSize : "25px",
