@@ -1,6 +1,4 @@
-import { createContext, useState , useMemo } from "react";
-import { createTheme } from "@mui/system";
-import { Settings } from "@mui/icons-material";
+
 // color design themes 
 export const tokensDark ={
     
@@ -47,7 +45,7 @@ Secondary: {
 
 
 
-function reverseTools(tokensDark){
+function reverseTokens(tokensDark){
 const reversedTokens ={}
 Object.entries(tokensDark).forEach(([key, val]) => {
         const keys = Object.keys(val);
@@ -55,7 +53,7 @@ Object.entries(tokensDark).forEach(([key, val]) => {
 const length = keys.length;
 const reverseObj=  {};
 for(let i =0;i< length; i++){
-        reverseObj[keys[i] = values[length - i -1]];
+        reverseObj[keys[i]] = values[length - i -1];
 }
 reversedTokens[key] = reverseObj;
 });
@@ -64,16 +62,16 @@ return reversedTokens;
 
 }
 
-export const tokensLight = reversedTokens(tokensDark);
+export const tokensLight = reverseTokens(tokensDark);
 
 //mui theme Settings
 export const themeSettings = (mode)=> {
         return{
                 palette:{
                     mode: mode,
-                    ...Settings(mode ==="dark" ?
+                    ...(mode ==="dark" ?
                     {
-                        //pallete values for darke mode
+                        
                         primary:{
                                 ...tokensDark.primary,
                                 main: tokensDark.primary[400],
