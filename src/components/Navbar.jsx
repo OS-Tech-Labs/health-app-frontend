@@ -24,7 +24,7 @@ import {
     MenuItem,
     useTheme } from "@mui/material";
 
-const Navbar = ({user,isSidebarOpen, SetIsSidebarOpen}) => {
+    const Navbar = ({user,isSidebarOpen, SetIsSidebarOpen}) => {
     const dispatch = useDispatch();
     const theme = useTheme();
     const  [anchorE1, setAnchorE1] =useState(null);
@@ -88,21 +88,7 @@ const Navbar = ({user,isSidebarOpen, SetIsSidebarOpen}) => {
                     borderRadius="50%"
                     sx={{objectFit:"cover"}}
                     />
-                    <Box textAlign= "left">
-                        <Typography
-                        fontWeight ="bold"
-                        foontSize ="0.85 rem"
-                        sx={{color:theme.palette.secondary[100]}}
-                        >
-                            {user.name}
-                        </Typography>
-                        <Typography
-                        fontSize="0.75rem"
-                        sx ={{color:theme.palette.secondary[200]}}
-                        >
-                            {user.occupation}
-                        </Typography>
-                    </Box>
+                    
                     <ArrowDropDownOutlined
                     sx ={{color:theme.palette.secondary[300], fontSize: "25px"}}
                     />

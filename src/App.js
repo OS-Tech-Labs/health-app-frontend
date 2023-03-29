@@ -8,7 +8,7 @@ import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom";
 import { themeSettings } from "./Themes";
-import DashBoard from "./scenes/dashboard/index";
+import DashBoard from "./scenes/dashboard/Dashboard";
 import Layout from "./scenes/layout";
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
         <ThemeProvider theme = {theme}>
         <CssBaseline/>
         <Routes>
+           
           <Route element ={<Layout/>}>
           <Route path= "/" element ={<Navigate to ="/dashboard" replace/>}/>
           <Route path ="/dashboard" element ={<Dashboard/>}/>
