@@ -106,7 +106,7 @@ const Sidebar = ({
     setActive(pathname.substring(1));
   }, [pathname]);
   return (
-    <Box component ='nav'>
+    <Box component ='nav'  >
       {isSidebarOpen && (
         <Drawer 
         open ={isSidebarOpen}
@@ -188,6 +188,7 @@ const Sidebar = ({
             })}
             </List>
           </Box>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Box
           component ="img"
           alt ="profile"
@@ -197,15 +198,14 @@ const Sidebar = ({
           borderRadius ="50%"
           sx ={{objectFit :"cover"}}
           />
+          </div>
           
           
-          <SettingsOutlined
-            sx ={{
-              color: theme.palette.secondary[300],
-              fontSize : "25px",
-            }}/>
+          <SettingsOutlined sx={{ color: theme.palette.secondary[300], fontSize: '25px', ml:"2 rem" }} />
+        
 
-            
+
+          
 
         </Drawer>
       )}

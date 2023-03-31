@@ -34,7 +34,7 @@ import {
       return (
     <AppBar
         sx={{
-            position :"static",
+            position :"fixed",
             background:"none",
             boxShadow: "none",
         }}
