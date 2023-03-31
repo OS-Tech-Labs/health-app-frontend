@@ -10,8 +10,6 @@ import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom";
 import { themeSettings } from "./Themes";
 import DashBoard from "./scenes/dashboard/Dashboard";
 import Layout from "./scenes/layout";
-import DashboardHome from "./scenes/dashboard/Dashboard";
-import {Login} from "./scenes/Login";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -23,10 +21,10 @@ function App() {
         <ThemeProvider theme = {theme}>
         <CssBaseline/>
         <Routes>
-          <Route path="/" element={<Login/>}> </Route>
+           
           <Route element ={<Layout/>}>
-          <Route path= "/abc" element ={<Navigate to ="/dashboard" replace/>}/>
-          <Route path ="/dashboard" element ={<DashboardHome/>}/>
+          <Route path= "/" element ={<Navigate to ="/dashboard" replace/>}/>
+          <Route path ="/dashboard" element ={<Dashboard/>}/>
             
             
             

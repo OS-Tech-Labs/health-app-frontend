@@ -1,6 +1,5 @@
 import React,{useState} from "react";
-import Axios from "axios";
-import { Navigate } from "react-router-dom";
+
 export const 
 Login= (props) => {
     const [email, setEmail] = useState('');
@@ -8,20 +7,10 @@ Login= (props) => {
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        console.log(email, pass);
-        Axios.post("http://localhost:3001/login", {
-        username: email,
-        password: pass,
-    })
-    .then((response)=>{
-        if (response.data.approved){
-            return <Navigate to= "/dashboard" ></Navigate>
-        }
-    })
+        console.log(email);
     }
-
     return (
-        
+        <>
             <div className="form-container">
                 <form  className="login-form" onSubmit={handleSubmit}>
                     <label htmlFor= 'email'> email</label>
@@ -32,6 +21,6 @@ Login= (props) => {
                 </form>
                 <button className="link-btn" onClick={() =>props.onFormSwitch('register')}>Don't have an account? Register here. </button>
             </div>
-            
+        </>
     )
 }
