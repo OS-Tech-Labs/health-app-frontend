@@ -13,7 +13,7 @@ import {
     useTheme
 } from "@mui/material"
 import {
-    SettingOutlined,
+    SettingsOutlined,
     ChevronLeft,
     ChevronRightOutlined,
     HomeOutlined,
@@ -56,7 +56,7 @@ const navItems =[
     icon :<PublicOutlined/>
   },
   {
-    text :"Sales",
+    text :"Chanelling",
     icon :null
   },
   {
@@ -106,11 +106,11 @@ const Sidebar = ({
     setActive(pathname.substring(1));
   }, [pathname]);
   return (
-    <Box component ='nav'>
+    <Box component ='nav'  >
       {isSidebarOpen && (
         <Drawer 
         open ={isSidebarOpen}
-        onclose ={ ()=> setIsSidebarOpen(false)}
+        onClose ={ ()=> setIsSidebarOpen(false)}
         variant ="persistent"
         anchor ="left"
         sx= {{
@@ -129,7 +129,7 @@ const Sidebar = ({
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display='flex' alignments='center' gap='0.5 rem'>
                   <Typography variant='h4' fontWeight='bold'>
-                    Omalya
+                    Health App
                   </Typography>
                 </Box>
                 {!isNonMobile  && (
@@ -188,6 +188,7 @@ const Sidebar = ({
             })}
             </List>
           </Box>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Box
           component ="img"
           alt ="profile"
@@ -197,28 +198,14 @@ const Sidebar = ({
           borderRadius ="50%"
           sx ={{objectFit :"cover"}}
           />
-          <Box textAlign = "left">
-            <Typography
-              fontWeight = "bold"
-              fontSize ="0.9rem"
-              sx ={{color: theme.palette.secondary[100]}}
-              >
-                {user.name}
-              </Typography>
-              <Typography
-              fontSize= "0.8 rem"
-              sx ={{color: theme.palette.secondary[200]}}
-              >
-                {user.occupation}
-              </Typography>
-          </Box>
-          <settingOutlined
-            sx ={{
-              color: theme.palette.secondary[300],
-              fontSize : "25px",
-            }}/>
+          </div>
+          
+          
+          <SettingsOutlined sx={{ color: theme.palette.secondary[300], fontSize: '25px', ml:"2 rem" }} />
+        
 
-            
+
+          
 
         </Drawer>
       )}
