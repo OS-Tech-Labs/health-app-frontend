@@ -5,19 +5,23 @@ export const
 Login= (props) => {
     const [email, setEmail] = useState('');
     const[pass, setPass] = useState('');
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const handleSubmit =(e) => {
         e.preventDefault();
         console.log(email, pass);
-        Axios.post("http://localhost:3001/login", {
+        Axios.post("http://localhost:3002/login", {
         username: email,
         password: pass,
     })
     .then((response)=>{
+        console.log(response.data.approved);
         if (response.data.approved){
-            return <Navigate to= "/dashboard" ></Navigate>
+            setIsLoggedIn(true);
         }
     })
+    }
+    if (isLoggedIn) {
+        return <Navigate to="/dashboard" />;
     }
 
     return (
