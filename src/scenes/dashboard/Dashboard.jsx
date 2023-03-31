@@ -1,14 +1,6 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-const DashboardHome = () => {
-  const {pathname} = useLocation();
-  const [active, setActive] = useState("");
-  const navigate = useNavigate();
-  //const theme = useTheme();
-  useEffect(() => {
-    setActive(pathname.substring(1));
-  }, [pathname]);
+import React from 'react'
+
+const Dashboard = () => {
   return (
     <div>
       Dashboard
@@ -16,4 +8,4 @@ const DashboardHome = () => {
   )
 }
 
-export default DashboardHome;
+export default Dashboard;
