@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-const DashboardHome = () => {
+const Home = () => {
   const {pathname} = useLocation();
   const [active, setActive] = useState("");
   const navigate = useNavigate();
@@ -16,4 +16,4 @@ const DashboardHome = () => {
   )
 }
 
-export default DashboardHome;
+export default Home;
