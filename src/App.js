@@ -12,7 +12,7 @@ import DashBoard from "./scenes/dashboard/Dashboard";
 import Layout from "./scenes/layout";
 import DashboardHome from "./scenes/dashboard/Dashboard";
 import {Login} from "./scenes/Login";
-
+import { Register } from "./scenes/Register";
 function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
@@ -24,13 +24,10 @@ function App() {
         <CssBaseline/>
         <Routes>
           <Route path="/" element={<Login/>}> </Route>
-          <Route element ={<Layout/>}>
+          <Route path ="/register" element = {<Register/>}/> 
+          <Route  element ={<Layout/>}>
           <Route path= "/abc" element ={<Navigate to ="/dashboard" replace/>}/>
           <Route path ="/dashboard" element ={<DashboardHome/>}/>
-            
-            
-            
-
           </Route>
         </Routes>
       </ThemeProvider>

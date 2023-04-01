@@ -9,7 +9,8 @@ import {
     Container,
     Grid,
     TextField,
-    Button
+    Button,
+
 } from "@mui/material"
 import {
     EmailOutlined,
@@ -20,13 +21,15 @@ import {
 } from "@mui/icons-material"
 import GoogleIcon from '@mui/icons-material/Google';
 import Axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate }from "react-router-dom";
 
 export const 
 Login= (props) => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const[pass, setPass] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isNoAccount, setIsNOAccount] = useState(false);
     const theme = useTheme();
     const handleSubmit =(e) => {
         e.preventDefault();
@@ -41,9 +44,16 @@ Login= (props) => {
             setIsLoggedIn(true);
         }
     })
+    
+
+        
     }
+    
     if (isLoggedIn) {
         return <Navigate to="/dashboard" />;
+    }
+    if(isNoAccount){
+        return <Navigate to ="/register"/>;
     }
 
     return (
@@ -63,6 +73,7 @@ Login= (props) => {
                 <form  className="login-form" onSubmit={handleSubmit}>
                     <TextField
                         variant ="outlined"
+                        type ="text"
                         margin = "normal"
                         required
                         fullWidth 
@@ -77,6 +88,7 @@ Login= (props) => {
                     <TextField
                         variant ="outlined"
                         margin = "normal"
+                        type="password"
                         required
                         fullWidth 
                         id = "password"
@@ -97,28 +109,33 @@ Login= (props) => {
                 >
                     Sign In
                 </Button>
+                
                     {/* <label htmlFor= 'email'> email</label> */}
                     {/* <input value= {email} onChange={(e) => setEmail(e.target.value)} type = 'email' placeholder="Username or email" id = 'email' name ='email'></input> */}
                     {/* <label htmlFor= 'password'> password</label> */}
                     {/* <input value = {pass} onChange={(e) => setPass(e.target.value)} type = 'password' placeholder="*******" id = 'password' name ='password'></input> */}
                     {/* <button> Log In</button> */}
                 </form>
-                <Box mt={5}>
-          <Grid >
+                <Grid container spacing ={2}>
             <Grid item xs>
-                <IconButton>
+            
+            <Button>
               <Typography variant="body2" color="textSecondary" align="center">
                 Forgot password?
               </Typography>
-              </IconButton>
+              </Button>  
+            
             </Grid>
             <Grid item>
+              <Button  onClick={()=>{navigate("/register")}}>
               <Typography variant="body2" color="textSecondary" align="center">
                 {"Don't have an account? Sign Up"}
               </Typography>
+              </Button>
             </Grid>
           </Grid>
-        </Box>
+          
+    
             
         </Container>
             

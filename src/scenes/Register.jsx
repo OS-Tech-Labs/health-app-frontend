@@ -1,6 +1,7 @@
 import React,{useState} from "react";
-
-export const Register= (props) => {
+import { useNavigate } from "react-router-dom";
+export  const Register= (props) => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
@@ -20,8 +21,9 @@ export const Register= (props) => {
                     <input value = {pass} onChange={(e) => setPass(e.target.value)} type = 'password' placeholder="*******" id = 'password' name ='password'></input>
                     <button> Sign In</button>
                 </form>
-                <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here. </button>
+                <button className="link-btn" onClick={() =>{navigate("/")}}>Already have an account? Login here. </button>
             </div>
         </>
     )
 }
+
