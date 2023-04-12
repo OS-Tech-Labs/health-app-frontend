@@ -1,7 +1,8 @@
 /**
  * Return the ra
  */
-import { Dashboard } from "@mui/icons-material";
+
+
 import { CssBaseline,ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { useMemo , Suspense, lazy} from "react";
@@ -13,14 +14,15 @@ import Layout from "./scenes/layout";
 import Home from "./scenes/dashboard/Home";
 import {Login} from "./scenes/Login";
 import { Register } from "./scenes/Register";
+import Chat from "./scenes/chat";
 
-// const Loadable = (component) => (props)=>{
-  // return (
-    // <Suspense fallback = {<LoadingScreen/>}>
-
-    // </Suspense>
-  // )
-// }
+const Loadable = (Components) => (props)=>{
+   return (
+     <Suspense fallback = {<LoadingScreen/>}>
+        <Components{...props}/>
+     </Suspense>
+   )
+}
 export default function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
@@ -36,6 +38,8 @@ export default function App() {
           <Route  element ={<Layout/>}>
           <Route path= "/abc" element ={<Navigate to ="/dashboard" replace/>}/>
           <Route path ="/dashboard" element ={<Home/>}/>
+          <Route path ="/chat" element ={<Chat/>}/>
+
           </Route>
         </Routes>
       </ThemeProvider>

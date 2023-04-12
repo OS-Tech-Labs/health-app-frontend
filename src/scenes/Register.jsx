@@ -7,8 +7,23 @@ export  const Register= (props) => {
     const [name, setName] = useState('');
     const handleSubmit =(e) => {
         e.preventDefault();
-        console.log(email);
+        console.log(email, pass);
+        Axios.post("http://localhost:3002/login", {
+        username: email,
+        password: pass,
+    })
+    .then((response)=>{
+        console.log(response.data.approved);
+        if (response.data.approved){
+            setIsLoggedIn(true);
+        }
+    })
+    
+
+        
     }
+    
+
     return (
         <>
             <div className="form-container">

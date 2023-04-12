@@ -26,7 +26,8 @@ import {
     CalendarMonthOutlined,
     AdminPanelSettingsOutlined,
     TrendingUpOutlined,
-    PieChartOutlined
+    PieChartOutlined,
+    ChatBubbleOutline
  
 } 
 from "@mui/icons-material"
@@ -45,8 +46,8 @@ const navItems =[
     icon :null,
   },
   {
-    text :"products",
-    icon :<ShoppingCartOutlined/>
+    text :"chat",
+    icon :<ChatBubbleOutline/>
   },
   {
     text :"Customers",
