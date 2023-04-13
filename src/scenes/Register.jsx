@@ -1,10 +1,12 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios"
 export  const Register= (props) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
+    const [loggedIn, setIsLoggedIn] = useState(false)
     const handleSubmit =(e) => {
         e.preventDefault();
         console.log(email, pass);
