@@ -47,7 +47,7 @@ import {
                 </IconButton>
             <FlexBetween
                 backgroundColor = {theme.palette.background.alt}
-                boarderRadius = "9px"
+                boarderradius = "9px"
                 gap = "3rem"
                 p= "0.1rem  1.5rem">
                 <InputBase placeholder="Search..."/>

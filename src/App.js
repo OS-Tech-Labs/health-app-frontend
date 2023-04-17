@@ -14,7 +14,7 @@ import Layout from "./scenes/layout";
 import Home from "./scenes/dashboard/Home";
 import {Login} from "./scenes/Login";
 import { Register } from "./scenes/Register";
-import Chat from "./scenes/chat";
+import Chat from "./scenes/chat/chat";
 
 const Loadable = (Components) => (props)=>{
    return (
