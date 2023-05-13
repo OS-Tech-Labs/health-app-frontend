@@ -1,19 +1,29 @@
 /**
  * Return the ra
  */
-import { Dashboard } from "@mui/icons-material";
+
+
 import { CssBaseline,ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { useMemo } from "react";
+import { useMemo , Suspense, lazy} from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom";
 import { themeSettings } from "./Themes";
-import DashBoard from "./scenes/dashboard/Dashboard";
+import LoadingScreen from "./components/LoadingScreen";
 import Layout from "./scenes/layout";
-import DashboardHome from "./scenes/dashboard/Dashboard";
+import Home from "./scenes/dashboard/Home";
 import {Login} from "./scenes/Login";
 import { Register } from "./scenes/Register";
-function App() {
+import Chat from "./scenes/chat/chat";
+
+const Loadable = (Components) => (props)=>{
+   return (
+     <Suspense fallback = {<LoadingScreen/>}>
+        <Components{...props}/>
+     </Suspense>
+   )
+}
+export default function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
   return (
@@ -27,7 +37,9 @@ function App() {
           <Route path ="/register" element = {<Register/>}/> 
           <Route  element ={<Layout/>}>
           <Route path= "/abc" element ={<Navigate to ="/dashboard" replace/>}/>
-          <Route path ="/dashboard" element ={<DashboardHome/>}/>
+          <Route path ="/dashboard" element ={<Home/>}/>
+          <Route path ="/chat" element ={<Chat/>}/>
+
           </Route>
         </Routes>
       </ThemeProvider>
@@ -42,4 +54,4 @@ function App() {
   
 }
 
-export default App;
+

@@ -34,7 +34,7 @@ Login= (props) => {
     const handleSubmit =(e) => {
         e.preventDefault();
         console.log(email, pass);
-        Axios.post("http://localhost:3002/login", {
+        Axios.post("http://localhost:3002/user/login", {
         username: email,
         password: pass,
     })
