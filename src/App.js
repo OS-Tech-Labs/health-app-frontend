@@ -1,14 +1,9 @@
-/**
- * Return the ra
- */
 
 
-import { CssBaseline,ThemeProvider } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import { useMemo , Suspense, lazy} from "react";
-import { useSelector } from "react-redux";
-import { BrowserRouter,Navigate, Routes, Route } from "react-router-dom";
-import { themeSettings } from "./Themes";
+import {Suspense} from "react";
+
+import { Navigate, Routes, Route } from "react-router-dom";
+
 import LoadingScreen from "./components/LoadingScreen";
 import Layout from "./scenes/layout";
 import Home from "./scenes/dashboard/Home";
@@ -24,14 +19,13 @@ const Loadable = (Components) => (props)=>{
    )
 }
 export default function App() {
-  const mode = useSelector((state) => state.global.mode);
-  const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
+ 
+  
   return (
    
       <div className="App">
-        <BrowserRouter>
-        <ThemeProvider theme = {theme}>
-        <CssBaseline/>
+       
+        
         <Routes>
           <Route path="/" element={<Login/>}> </Route>
           <Route path ="/register" element = {<Register/>}/> 
@@ -42,8 +36,7 @@ export default function App() {
 
           </Route>
         </Routes>
-      </ThemeProvider>
-        </BrowserRouter>
+      
       
         
         

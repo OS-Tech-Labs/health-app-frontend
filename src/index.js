@@ -5,17 +5,30 @@ import App from './App';
 import { configureStore } from '@reduxjs/toolkit';
 import globalReducer from "./state";
 import {Provider} from "react-redux";
+import { CssBaseline,ThemeProvider } from "@mui/material";
+import { BrowserRouter } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { createTheme } from "@mui/material/styles";
+import { useMemo} from "react";
+import { themeSettings } from "./Themes";
 
 const store = configureStore({
   reducer :{
     global :globalReducer,
   },
 })
+const mode = useSelector((state) => state.global.mode);
+const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
     <Provider store = {store}>
+      <BrowserRouter>
+    <ThemeProvider theme={theme} >
+    <CssBaseline/>
     <App />
+    </ThemeProvider>
+    </BrowserRouter>
     </Provider>
     
   
