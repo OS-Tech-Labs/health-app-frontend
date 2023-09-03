@@ -1,13 +1,14 @@
 import React, { useState } from "react"
+import "./chat.css"
 import {
   Container,
   Grid,
-  Paper,
-  TextField,
-  Button,
-  Typography,
+  Paper
 } from "@mui/material"
-import SendIcon from "@mui/icons-material/Send"
+import ChatHeader from "./Header"
+
+import Footer from "./Footer"
+import Messages from "./Messages"
 
 function Chat() {
   const [messages, setMessages] = useState([])
@@ -15,9 +16,12 @@ function Chat() {
 
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return
+    const currentSender = "user" // Replace with the actual sender
 
     // Add the new message to the messages array
-    setMessages([...messages, { text: newMessage, sender: "user" }])
+    setMessages([...messages, { text: newMessage, sender: currentSender }])
+
+    // Update the previous sender
 
     // Clear the input field
     setNewMessage("")
@@ -25,37 +29,27 @@ function Chat() {
 
   return (
     <Container>
-      <Typography variant="h4" align="center" gutterBottom>
-        Chat App
-      </Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={0}>
         <Grid item xs={12} md={8}>
-          <Paper elevation={3} style={{ minHeight: "400px", padding: "20px" }}>
-            {/* Display the chat messages */}
-            {messages.map((message, index) => (
-              <div key={index} className={`message ${message.sender}`}>
-                {message.text}
-              </div>
-            ))}
-          </Paper>
-          <TextField
-            fullWidth
-            label="Type your message"
-            variant="outlined"
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") handleSendMessage()
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<SendIcon />}
-            onClick={handleSendMessage}
+          <ChatHeader />
+          <Paper
+            elevation={3}
+            className="paper-container"
+            // style={{
+            //   height: "400px",
+            //   overflowY: "auto",
+            //   padding: "20px",
+            //   position: "relative",
+            // }}
           >
-            Send
-          </Button>
+            <Messages messages={messages} />
+          </Paper>
+
+          <Footer
+            newMessage={newMessage}
+            handleSendMessage={handleSendMessage}
+            setNewMessage={setNewMessage}
+          />
         </Grid>
         {/* You can add additional components for user list, etc. in the second Grid item */}
       </Grid>

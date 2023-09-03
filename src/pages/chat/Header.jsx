@@ -1,8 +1,14 @@
-import React from 'react'
+import React from "react"
+import { AppBar, Avatar } from "@mui/material"
+import styled from "styled-components"
+import "./chat.css"
+
 
 const ChatHeader = () => {
   return (
-    <div>ChatHeader</div>
+    <AppBar className="app-bar" position="static">
+      <Avatar />
+    </AppBar>
   )
 }
 
