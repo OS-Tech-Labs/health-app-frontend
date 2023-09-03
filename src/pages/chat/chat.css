@@ -1,9 +1,9 @@
 /* Hide the scrollbar by default */
-.paper-container{
-    height: 400px;
-    overflow-y: auto;
-    padding: 20px;
-    position: relative;
+.paper-container {
+  height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
 }
 
 .paper-container::-webkit-scrollbar {
@@ -24,16 +24,7 @@
 /* Style the scrollbar thumb (optional) */
 .paper-container::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3);
-}
-/* Style the scrollbar thumb (optional) */
-.paper-container::-webkit-scrollbar-thumb {
-  background: rgba(
-    0,
-    0,
-    0,
-    0.3
-  ); /* Adjust the scrollbar thumb color as needed */
-  border-radius: 4px; /* Adjust the scrollbar thumb radius as needed */
+  border-radius: 4px;
 }
 
 /* Common styles for both sent and received messages */
