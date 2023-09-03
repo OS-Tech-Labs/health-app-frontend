@@ -1,10 +1,6 @@
 import React, { useState } from "react"
 import "./chat.css"
-import {
-  Container,
-  Grid,
-  Paper
-} from "@mui/material"
+import { Container, Grid, Paper } from "@mui/material"
 import ChatHeader from "./Header"
 
 import Footer from "./Footer"
@@ -16,7 +12,7 @@ function Chat() {
 
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return
-    const currentSender = "user" // Replace with the actual sender
+    const currentSender = "guest" // Replace with the actual sender
 
     // Add the new message to the messages array
     setMessages([...messages, { text: newMessage, sender: currentSender }])

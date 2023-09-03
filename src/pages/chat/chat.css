@@ -37,7 +37,7 @@
 
 /* Styles for sent messages */
 .sent-message {
-  background-color: #007bff;
+  background-color: #1fedd7;
   color: #fff;
   border-radius: 10px 10px 10px 10px;
   max-width: 70%;
@@ -45,7 +45,7 @@
   text-align: left;
 }
 .sent-message-first {
-  background-color: #007bff;
+  background-color: #1fedd7;
   color: #fff;
   border-radius: 10px 0px 10px 10px;
   max-width: 70%;
