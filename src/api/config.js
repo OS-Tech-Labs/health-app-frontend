@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const API_BASE_URL = "localhost:3002" // Replace with your actual API server URL
+// const API_BASE_URL = "localhost:3002" // Replace with your actual API server URL
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCAp--tW6PFARLnBvQKKdT9Aib5vcbPapI",
@@ -20,4 +20,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
 
-module.exports =  {API_BASE_URL,app,analytics}
+export const API_BASE_URL = "localhost:3002" // Replace with your actual API server URL
+export { app, analytics }

@@ -1,5 +1,5 @@
 import React from "react"
-import { Box } from "@mui/material"
+import { Box,Avatar } from "@mui/material"
 import "./chat.css"
 
 const Messages = ({ messages }) => {
@@ -18,6 +18,10 @@ const Messages = ({ messages }) => {
             key={index}
             className={`message-container ${messageContainerClass}`}
           >
+            
+            {message.sender !== "user" && (
+              <Avatar src={message.avatar} alt={message.name} />
+            )}
             <Box
               className={`message ${
                 message.sender === "user" && isFirstInGroup
