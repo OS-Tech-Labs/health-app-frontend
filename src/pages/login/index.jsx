@@ -19,15 +19,16 @@ const Login = () => {
 
   return (
     <nav className="nav-bar">
-      <h1>React Chat</h1>
+      <h1>React Chat </h1>
       {user ? (
         <div>
+        
           <button onClick={signOut} className="sign-out" type="button">
             Sign Out
           </button>
           <button
             onClick={() => {
-              navigate("/home")
+              navigate("/chat_selection")
             }}
             className="sign-out"
             type="button"

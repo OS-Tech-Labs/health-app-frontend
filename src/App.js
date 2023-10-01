@@ -2,10 +2,10 @@ import HomeNav from "./pages/home"
 import { useContext } from "react"
 import { AuthContext } from "./context/AuthContext"
 import { Routes, Route } from "react-router-dom"
-import { auth } from "./api/firebase.js"
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth"
 import NavBar from "./pages/Navbar"
 import Login from "./pages/login"
+import ChatSelection from "./pages/chat_selection"
+import Chat from "./pages/chat/ChatNew"
 
 export default function App() {
   const { userType } = useContext(AuthContext)
@@ -18,6 +18,8 @@ export default function App() {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<HomeNav />} />
           <Route path="/login" element={<NavBar />} />
+          <Route path="/chat_selection" element={<ChatSelection />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       ) : (
         <Routes>
