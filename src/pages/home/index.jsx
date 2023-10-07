@@ -1,5 +1,5 @@
 import React from "react"
-import Chat from "../chat/Chat.jsx"
+import Chat from "../chat/chat.jsx"
 
 const HomeNav = () => {
   return (
