@@ -1,12 +1,19 @@
 import React from "react"
-import Chat from "../chat/chat.jsx"
+import Chat from "../chat/Chat.jsx"
+import NavBar from "../navbar"
+import Welcome from "./Welcome.jsx"
+import Footer from "../footer"
+import Login from "../login/index.jsx"
 
-const HomeNav = () => {
+const Home = () => {
+
   return (
     <div>
-      <Chat />
+      <NavBar/>
+      <Welcome/>
+      <Footer/>
     </div>
   )
 }
 
-export default HomeNav
+export default Home
